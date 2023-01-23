@@ -23,6 +23,7 @@
 		87256AC7297EA6160093732B /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC6297EA6160093732B /* Renderer.swift */; };
 		87256ACA297EA67D0093732B /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC9297EA67D0093732B /* Shader.metal */; };
 		87256ACC297EA6EA0093732B /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256ACB297EA6E90093732B /* MainScene.swift */; };
+		87256ACE297EB92E0093732B /* apple park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87256ACD297EB92E0093732B /* apple park.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		87256AC6297EA6160093732B /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		87256AC9297EA67D0093732B /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 		87256ACB297EA6E90093732B /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		87256ACD297EB92E0093732B /* apple park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "apple park.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,7 @@
 		87256AB6297EA1570093732B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				87256ACD297EB92E0093732B /* apple park.jpg */,
 				87256AC3297EA40F0093732B /* Model.swift */,
 				87256AB7297EA1650093732B /* Node.swift */,
 				87256AC1297EA3E70093732B /* Vertex.swift */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				87256AA6297E90C90093732B /* LaunchScreen.storyboard in Resources */,
+				87256ACE297EB92E0093732B /* apple park.jpg in Resources */,
 				87256AA3297E90C90093732B /* Assets.xcassets in Resources */,
 				87256AA1297E90C90093732B /* Main.storyboard in Resources */,
 			);

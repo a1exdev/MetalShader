@@ -13,7 +13,7 @@ class MainScene: Scene {
     
     override init(device: MTLDevice, size: CGSize) {
         
-        model = Model(device: device, imageName: "")
+        model = Model(device: device, imageName: "apple park.jpg")
         
         super.init(device: device, size: size)
         

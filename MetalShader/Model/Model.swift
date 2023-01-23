@@ -23,32 +23,32 @@ class Model: Node, Renderable, Texturable {
 //    var indices: [UInt16] = [0, 1, 2]
     
 // MARK: Default Rectangle
-//    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(-0.35, 0.4, 0),
-//                                     color: SIMD4<Float>(1, 0, 0, 1),
-//                                     texture: SIMD2<Float>(0, 1)),
-//                              Vertex(position: SIMD3<Float>(-0.35, -0.4, 0),
-//                                     color: SIMD4<Float>(0, 1, 0, 1),
-//                                     texture: SIMD2<Float>(0, 0)),
-//                              Vertex(position: SIMD3<Float>(0.35, -0.4, 0),
-//                                     color: SIMD4<Float>(0, 0, 1, 1),
-//                                     texture: SIMD2<Float>(1, 0)),
-//                              Vertex(position: SIMD3<Float>(0.35, 0.4, 0),
-//                                     color: SIMD4<Float>(1, 0, 1, 1),
-//                                     texture: SIMD2<Float>(1, 1))]
-    
-// MARK: Lying Rectangle
-    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(-0.15, 0.5, 0),
+    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(-0.35, 0.4, 0),
                                      color: SIMD4<Float>(1, 0, 0, 1),
                                      texture: SIMD2<Float>(0, 1)),
-                              Vertex(position: SIMD3<Float>(-0.23, -0.5, 0),
+                              Vertex(position: SIMD3<Float>(-0.35, -0.4, 0),
                                      color: SIMD4<Float>(0, 1, 0, 1),
                                      texture: SIMD2<Float>(0, 0)),
-                              Vertex(position: SIMD3<Float>(0.23, -0.5, 0),
+                              Vertex(position: SIMD3<Float>(0.35, -0.4, 0),
                                      color: SIMD4<Float>(0, 0, 1, 1),
                                      texture: SIMD2<Float>(1, 0)),
-                              Vertex(position: SIMD3<Float>(0.15, 0.5, 0),
+                              Vertex(position: SIMD3<Float>(0.35, 0.4, 0),
                                      color: SIMD4<Float>(1, 0, 1, 1),
                                      texture: SIMD2<Float>(1, 1))]
+    
+// MARK: Lying Rectangle
+//    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(-0.15, 0.5, 0),
+//                                     color: SIMD4<Float>(1, 0, 0, 1),
+//                                     texture: SIMD2<Float>(0, 1)),
+//                              Vertex(position: SIMD3<Float>(-0.23, -0.5, 0),
+//                                     color: SIMD4<Float>(0, 1, 0, 1),
+//                                     texture: SIMD2<Float>(0, 0)),
+//                              Vertex(position: SIMD3<Float>(0.23, -0.5, 0),
+//                                     color: SIMD4<Float>(0, 0, 1, 1),
+//                                     texture: SIMD2<Float>(1, 0)),
+//                              Vertex(position: SIMD3<Float>(0.15, 0.5, 0),
+//                                     color: SIMD4<Float>(1, 0, 1, 1),
+//                                     texture: SIMD2<Float>(1, 1))]
 
     var indices: [UInt16] = [0, 1, 2,
                              2, 3, 0]
