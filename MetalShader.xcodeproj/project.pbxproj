@@ -22,6 +22,7 @@
 		87256AC4297EA40F0093732B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC3297EA40F0093732B /* Model.swift */; };
 		87256AC7297EA6160093732B /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC6297EA6160093732B /* Renderer.swift */; };
 		87256ACA297EA67D0093732B /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC9297EA67D0093732B /* Shader.metal */; };
+		87256ACC297EA6EA0093732B /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256ACB297EA6E90093732B /* MainScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		87256AC3297EA40F0093732B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		87256AC6297EA6160093732B /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 		87256AC9297EA67D0093732B /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
+		87256ACB297EA6E90093732B /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				87256AB4297EA1240093732B /* Scene.swift */,
+				87256ACB297EA6E90093732B /* MainScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -118,8 +121,8 @@
 		87256AB6297EA1570093732B /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				87256AB7297EA1650093732B /* Node.swift */,
 				87256AC3297EA40F0093732B /* Model.swift */,
+				87256AB7297EA1650093732B /* Node.swift */,
 				87256AC1297EA3E70093732B /* Vertex.swift */,
 			);
 			path = Model;
@@ -232,6 +235,7 @@
 				87256AB5297EA1240093732B /* Scene.swift in Sources */,
 				87256AB8297EA1650093732B /* Node.swift in Sources */,
 				87256A9C297E90C90093732B /* SceneDelegate.swift in Sources */,
+				87256ACC297EA6EA0093732B /* MainScene.swift in Sources */,
 				87256AB2297EA0780093732B /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,8 @@ class ViewController: UIViewController {
     var metalView: MTKView {
         return view as! MTKView
     }
+    
+    var renderer: Renderer?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,10 @@ class ViewController: UIViewController {
             fatalError("Device not created. Run on a physical device")
         }
         
+        renderer = Renderer(device: device)
+        renderer?.scene = MainScene(device: device, size: view.bounds.size)
+        
         metalView.clearColor = Colors.black
+        metalView.delegate = renderer
     }
 }
