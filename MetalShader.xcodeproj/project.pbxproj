@@ -20,6 +20,7 @@
 		87256AC0297EA2B70093732B /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256ABF297EA2B70093732B /* Texturable.swift */; };
 		87256AC2297EA3E70093732B /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC1297EA3E70093732B /* Vertex.swift */; };
 		87256AC4297EA40F0093732B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC3297EA40F0093732B /* Model.swift */; };
+		87256AC7297EA6160093732B /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC6297EA6160093732B /* Renderer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		87256ABF297EA2B70093732B /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 		87256AC1297EA3E70093732B /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
 		87256AC3297EA40F0093732B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		87256AC6297EA6160093732B /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				87256AB0297EA0640093732B /* Constant */,
 				87256ABC297EA2640093732B /* Extension */,
 				87256AB6297EA1570093732B /* Model */,
+				87256AC5297EA60B0093732B /* Renderer */,
 				87256AB3297EA10A0093732B /* Scene */,
 			);
 			path = MetalShader;
@@ -126,6 +129,14 @@
 				87256ABF297EA2B70093732B /* Texturable.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		87256AC5297EA60B0093732B /* Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				87256AC6297EA6160093732B /* Renderer.swift */,
+			);
+			path = Renderer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				87256A9A297E90C90093732B /* AppDelegate.swift in Sources */,
 				87256AC2297EA3E70093732B /* Vertex.swift in Sources */,
 				87256ABE297EA27A0093732B /* Renderable.swift in Sources */,
+				87256AC7297EA6160093732B /* Renderer.swift in Sources */,
 				87256AC0297EA2B70093732B /* Texturable.swift in Sources */,
 				87256AC4297EA40F0093732B /* Model.swift in Sources */,
 				87256AB5297EA1240093732B /* Scene.swift in Sources */,
