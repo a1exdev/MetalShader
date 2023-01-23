@@ -56,15 +56,23 @@
 		87256A98297E90C90093732B /* MetalShader */ = {
 			isa = PBXGroup;
 			children = (
+				87256AAD297E927F0093732B /* App */,
+			);
+			path = MetalShader;
+			sourceTree = "<group>";
+		};
+		87256AAD297E927F0093732B /* App */ = {
+			isa = PBXGroup;
+			children = (
 				87256A99297E90C90093732B /* AppDelegate.swift */,
 				87256A9B297E90C90093732B /* SceneDelegate.swift */,
 				87256A9D297E90C90093732B /* ViewController.swift */,
 				87256A9F297E90C90093732B /* Main.storyboard */,
-				87256AA2297E90C90093732B /* Assets.xcassets */,
 				87256AA4297E90C90093732B /* LaunchScreen.storyboard */,
+				87256AA2297E90C90093732B /* Assets.xcassets */,
 				87256AA7297E90C90093732B /* Info.plist */,
 			);
-			path = MetalShader;
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -289,7 +297,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q9V7VMQZ86;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MetalShader/Info.plist;
+				INFOPLIST_FILE = MetalShader/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -317,7 +325,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = Q9V7VMQZ86;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = MetalShader/Info.plist;
+				INFOPLIST_FILE = MetalShader/App/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
