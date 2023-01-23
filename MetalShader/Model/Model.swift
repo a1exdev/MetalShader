@@ -9,17 +9,35 @@ import MetalKit
 
 class Model: Node, Renderable, Texturable {
     
-    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(0, 0.5, 0),
+// MARK: Triangle
+//    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(0, 0.5, 0),
+//                                     color: SIMD4<Float>(1, 0, 0, 1),
+//                                     texture: SIMD2<Float>(0, 1)),
+//                              Vertex(position: SIMD3<Float>(-0.5, -0.5, 0),
+//                                     color: SIMD4<Float>(0, 1, 0, 1),
+//                                     texture: SIMD2<Float>(0, 0)),
+//                              Vertex(position: SIMD3<Float>(0.5, -0.5, 0),
+//                                     color: SIMD4<Float>(0, 0, 1, 1),
+//                                     texture: SIMD2<Float>(1, 0))]
+//
+//    var indices: [UInt16] = [0, 1, 2]
+    
+// MARK: Rectangle
+    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(-0.35, 0.4, 0),
                                      color: SIMD4<Float>(1, 0, 0, 1),
                                      texture: SIMD2<Float>(0, 1)),
-                              Vertex(position: SIMD3<Float>(-0.5, -0.5, 0),
+                              Vertex(position: SIMD3<Float>(-0.35, -0.4, 0),
                                      color: SIMD4<Float>(0, 1, 0, 1),
                                      texture: SIMD2<Float>(0, 0)),
-                              Vertex(position: SIMD3<Float>(0.5, -0.5, 0),
+                              Vertex(position: SIMD3<Float>(0.35, -0.4, 0),
                                      color: SIMD4<Float>(0, 0, 1, 1),
-                                     texture: SIMD2<Float>(1, 0))]
+                                     texture: SIMD2<Float>(1, 0)),
+                              Vertex(position: SIMD3<Float>(0.35, 0.4, 0),
+                                     color: SIMD4<Float>(1, 0, 1, 1),
+                                     texture: SIMD2<Float>(1, 1))]
 
-    var indices: [UInt16] = [0, 1, 2]
+    var indices: [UInt16] = [0, 1, 2,
+                             2, 3, 0]
     
     var texture: MTLTexture?
     
