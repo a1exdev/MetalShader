@@ -17,6 +17,7 @@
 		87256AB5297EA1240093732B /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AB4297EA1240093732B /* Scene.swift */; };
 		87256AB8297EA1650093732B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AB7297EA1650093732B /* Node.swift */; };
 		87256ABE297EA27A0093732B /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256ABD297EA27A0093732B /* Renderable.swift */; };
+		87256AC0297EA2B70093732B /* Texturable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256ABF297EA2B70093732B /* Texturable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		87256AB4297EA1240093732B /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		87256AB7297EA1650093732B /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		87256ABD297EA27A0093732B /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		87256ABF297EA2B70093732B /* Texturable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Texturable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				87256ABD297EA27A0093732B /* Renderable.swift */,
+				87256ABF297EA2B70093732B /* Texturable.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				87256A9E297E90C90093732B /* ViewController.swift in Sources */,
 				87256A9A297E90C90093732B /* AppDelegate.swift in Sources */,
 				87256ABE297EA27A0093732B /* Renderable.swift in Sources */,
+				87256AC0297EA2B70093732B /* Texturable.swift in Sources */,
 				87256AB5297EA1240093732B /* Scene.swift in Sources */,
 				87256AB8297EA1650093732B /* Node.swift in Sources */,
 				87256A9C297E90C90093732B /* SceneDelegate.swift in Sources */,
