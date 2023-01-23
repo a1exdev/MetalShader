@@ -21,6 +21,7 @@
 		87256AC2297EA3E70093732B /* Vertex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC1297EA3E70093732B /* Vertex.swift */; };
 		87256AC4297EA40F0093732B /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC3297EA40F0093732B /* Model.swift */; };
 		87256AC7297EA6160093732B /* Renderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC6297EA6160093732B /* Renderer.swift */; };
+		87256ACA297EA67D0093732B /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC9297EA67D0093732B /* Shader.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		87256AC1297EA3E70093732B /* Vertex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vertex.swift; sourceTree = "<group>"; };
 		87256AC3297EA40F0093732B /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		87256AC6297EA6160093732B /* Renderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderer.swift; sourceTree = "<group>"; };
+		87256AC9297EA67D0093732B /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +80,7 @@
 				87256AB6297EA1570093732B /* Model */,
 				87256AC5297EA60B0093732B /* Renderer */,
 				87256AB3297EA10A0093732B /* Scene */,
+				87256AC8297EA6670093732B /* Shader */,
 			);
 			path = MetalShader;
 			sourceTree = "<group>";
@@ -137,6 +140,14 @@
 				87256AC6297EA6160093732B /* Renderer.swift */,
 			);
 			path = Renderer;
+			sourceTree = "<group>";
+		};
+		87256AC8297EA6670093732B /* Shader */ = {
+			isa = PBXGroup;
+			children = (
+				87256AC9297EA67D0093732B /* Shader.metal */,
+			);
+			path = Shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87256ACA297EA67D0093732B /* Shader.metal in Sources */,
 				87256A9E297E90C90093732B /* ViewController.swift in Sources */,
 				87256A9A297E90C90093732B /* AppDelegate.swift in Sources */,
 				87256AC2297EA3E70093732B /* Vertex.swift in Sources */,
