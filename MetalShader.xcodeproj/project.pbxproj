@@ -16,6 +16,7 @@
 		87256AB2297EA0780093732B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AB1297EA0780093732B /* Constants.swift */; };
 		87256AB5297EA1240093732B /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AB4297EA1240093732B /* Scene.swift */; };
 		87256AB8297EA1650093732B /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AB7297EA1650093732B /* Node.swift */; };
+		87256ABE297EA27A0093732B /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256ABD297EA27A0093732B /* Renderable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		87256AB1297EA0780093732B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		87256AB4297EA1240093732B /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		87256AB7297EA1650093732B /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		87256ABD297EA27A0093732B /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			children = (
 				87256AAD297E927F0093732B /* App */,
 				87256AB0297EA0640093732B /* Constant */,
+				87256ABC297EA2640093732B /* Extension */,
 				87256AB6297EA1570093732B /* Model */,
 				87256AB3297EA10A0093732B /* Scene */,
 			);
@@ -106,6 +109,14 @@
 				87256AB7297EA1650093732B /* Node.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		87256ABC297EA2640093732B /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				87256ABD297EA27A0093732B /* Renderable.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			files = (
 				87256A9E297E90C90093732B /* ViewController.swift in Sources */,
 				87256A9A297E90C90093732B /* AppDelegate.swift in Sources */,
+				87256ABE297EA27A0093732B /* Renderable.swift in Sources */,
 				87256AB5297EA1240093732B /* Scene.swift in Sources */,
 				87256AB8297EA1650093732B /* Node.swift in Sources */,
 				87256A9C297E90C90093732B /* SceneDelegate.swift in Sources */,
