@@ -12,12 +12,16 @@ protocol Renderable {
     var vertexFunctionName: String { get }
     var fragmentFunctionName: String { get }
     var vertexDescriptor: MTLVertexDescriptor { get }
+    
+    var modelConstants: ModelConstants { get set }
+    
+    func doRender(commandEncoder: MTLRenderCommandEncoder, modelViewMatrix: matrix_float4x4)
 }
 
 extension Renderable {
     
     func buildPipelineState(device: MTLDevice) -> MTLRenderPipelineState {
-        
+      
         let library = device.makeDefaultLibrary()
         let vertexFunction = library?.makeFunction(name: vertexFunctionName)
         let fragmentFunction = library?.makeFunction(name: fragmentFunctionName)
@@ -27,6 +31,7 @@ extension Renderable {
         pipelineDescriptor.fragmentFunction = fragmentFunction
         pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
         pipelineDescriptor.vertexDescriptor = vertexDescriptor
+        pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
       
         let pipelineState: MTLRenderPipelineState
         do {
