@@ -24,6 +24,7 @@
 		87256ACA297EA67D0093732B /* Shader.metal in Sources */ = {isa = PBXBuildFile; fileRef = 87256AC9297EA67D0093732B /* Shader.metal */; };
 		87256ACC297EA6EA0093732B /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256ACB297EA6E90093732B /* MainScene.swift */; };
 		87256ACE297EB92E0093732B /* apple park.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87256ACD297EB92E0093732B /* apple park.jpg */; };
+		87256AD1298004410093732B /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AD0298004410093732B /* Matrix.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		87256AC9297EA67D0093732B /* Shader.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shader.metal; sourceTree = "<group>"; };
 		87256ACB297EA6E90093732B /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		87256ACD297EB92E0093732B /* apple park.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "apple park.jpg"; sourceTree = "<group>"; };
+		87256AD0298004410093732B /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				87256AB0297EA0640093732B /* Constant */,
 				87256ABC297EA2640093732B /* Extension */,
 				87256AB6297EA1570093732B /* Model */,
+				87256ACF2980041F0093732B /* Position */,
 				87256AC5297EA60B0093732B /* Renderer */,
 				87256AB3297EA10A0093732B /* Scene */,
 				87256AC8297EA6670093732B /* Shader */,
@@ -156,6 +159,14 @@
 			path = Shader;
 			sourceTree = "<group>";
 		};
+		87256ACF2980041F0093732B /* Position */ = {
+			isa = PBXGroup;
+			children = (
+				87256AD0298004410093732B /* Matrix.swift */,
+			);
+			path = Position;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -228,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87256AD1298004410093732B /* Matrix.swift in Sources */,
 				87256ACA297EA67D0093732B /* Shader.metal in Sources */,
 				87256A9E297E90C90093732B /* ViewController.swift in Sources */,
 				87256A9A297E90C90093732B /* AppDelegate.swift in Sources */,
