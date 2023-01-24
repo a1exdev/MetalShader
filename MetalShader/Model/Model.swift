@@ -7,61 +7,19 @@
 
 import MetalKit
 
-class Model: Node, Renderable, Texturable {
+class Model: Node, Texturable {
     
-// MARK: Triangle
-//    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(0, 0.5, 0),
-//                                     color: SIMD4<Float>(1, 0, 0, 1),
-//                                     texture: SIMD2<Float>(0, 1)),
-//                              Vertex(position: SIMD3<Float>(-0.5, -0.5, 0),
-//                                     color: SIMD4<Float>(0, 1, 0, 1),
-//                                     texture: SIMD2<Float>(0, 0)),
-//                              Vertex(position: SIMD3<Float>(0.5, -0.5, 0),
-//                                     color: SIMD4<Float>(0, 0, 1, 1),
-//                                     texture: SIMD2<Float>(1, 0))]
-//
-//    var indices: [UInt16] = [0, 1, 2]
-    
-// MARK: Default Rectangle
-    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(-0.35, 0.4, 0),
-                                     color: SIMD4<Float>(1, 0, 0, 1),
-                                     texture: SIMD2<Float>(0, 1)),
-                              Vertex(position: SIMD3<Float>(-0.35, -0.4, 0),
-                                     color: SIMD4<Float>(0, 1, 0, 1),
-                                     texture: SIMD2<Float>(0, 0)),
-                              Vertex(position: SIMD3<Float>(0.35, -0.4, 0),
-                                     color: SIMD4<Float>(0, 0, 1, 1),
-                                     texture: SIMD2<Float>(1, 0)),
-                              Vertex(position: SIMD3<Float>(0.35, 0.4, 0),
-                                     color: SIMD4<Float>(1, 0, 1, 1),
-                                     texture: SIMD2<Float>(1, 1))]
-    
-// MARK: Lying Rectangle
-//    var vertices: [Vertex] = [Vertex(position: SIMD3<Float>(-0.15, 0.5, 0),
-//                                     color: SIMD4<Float>(1, 0, 0, 1),
-//                                     texture: SIMD2<Float>(0, 1)),
-//                              Vertex(position: SIMD3<Float>(-0.23, -0.5, 0),
-//                                     color: SIMD4<Float>(0, 1, 0, 1),
-//                                     texture: SIMD2<Float>(0, 0)),
-//                              Vertex(position: SIMD3<Float>(0.23, -0.5, 0),
-//                                     color: SIMD4<Float>(0, 0, 1, 1),
-//                                     texture: SIMD2<Float>(1, 0)),
-//                              Vertex(position: SIMD3<Float>(0.15, 0.5, 0),
-//                                     color: SIMD4<Float>(1, 0, 1, 1),
-//                                     texture: SIMD2<Float>(1, 1))]
-
-    var indices: [UInt16] = [0, 1, 2,
-                             2, 3, 0]
-    
-    var texture: MTLTexture?
-    
-    var vertexBuffer: MTLBuffer?
-    var indexBuffer: MTLBuffer?
-    
-    var pipelineState: MTLRenderPipelineState!
     var fragmentFunctionName: String = FunctionNames.fragmentShader.rawValue
     var vertexFunctionName: String = FunctionNames.vertexShader.rawValue
     
+    var modelConstants = ModelConstants()
+    
+    var meshes: [AnyObject]?
+    
+    var texture: MTLTexture?
+    
+    var pipelineState: MTLRenderPipelineState!
+  
     var vertexDescriptor: MTLVertexDescriptor {
         let vertexDescriptor = MTLVertexDescriptor()
         
@@ -70,53 +28,92 @@ class Model: Node, Renderable, Texturable {
         vertexDescriptor.attributes[0].bufferIndex = 0
         
         vertexDescriptor.attributes[1].format = .float4
-        vertexDescriptor.attributes[1].offset = MemoryLayout<SIMD3<Float>>.stride
+        vertexDescriptor.attributes[1].offset = MemoryLayout<Float>.stride * 3
         vertexDescriptor.attributes[1].bufferIndex = 0
         
         vertexDescriptor.attributes[2].format = .float2
-        vertexDescriptor.attributes[2].offset = MemoryLayout<SIMD3<Float>>.stride + MemoryLayout<SIMD4<Float>>.stride
+        vertexDescriptor.attributes[2].offset = MemoryLayout<Float>.stride * 7
         vertexDescriptor.attributes[2].bufferIndex = 0
         
-        vertexDescriptor.layouts[0].stride = MemoryLayout<Vertex>.stride
+        vertexDescriptor.attributes[3].format = .float3
+        vertexDescriptor.attributes[3].offset = MemoryLayout<Float>.stride * 9
+        vertexDescriptor.attributes[3].bufferIndex = 0
+
+        vertexDescriptor.layouts[0].stride = MemoryLayout<Float>.stride * 12
         
         return vertexDescriptor
     }
   
-    init(device: MTLDevice) {
+    init(device:MTLDevice, modelName: String) {
+        
         super.init()
-        buildBuffers(device: device)
+        
+        name = modelName
+        loadModel(device: device, modelName: modelName)
+        
         pipelineState = buildPipelineState(device: device)
     }
     
-    init(device: MTLDevice, imageName: String) {
+    func loadModel(device: MTLDevice, modelName: String) {
         
-        super.init()
-        
-        if let texture = setTexture(device: device, imageName: imageName) {
-            self.texture = texture
-            fragmentFunctionName = FunctionNames.texturedFragment.rawValue
+        guard let assetURL = Bundle.main.url(forResource: modelName, withExtension: "obj") else {
+            fatalError("Asset \(modelName) does not exist.")
         }
+        let descriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
         
-        buildBuffers(device: device)
-        pipelineState = buildPipelineState(device: device)
-    }
-    
-    private func buildBuffers(device: MTLDevice) {
-        vertexBuffer = device.makeBuffer(bytes: vertices, length: vertices.count * MemoryLayout<Vertex>.stride, options: [])
-        indexBuffer = device.makeBuffer(bytes: indices, length: indices.count * MemoryLayout<UInt16>.size, options: [])
-    }
-    
-    override func render(commandEncoder: MTLRenderCommandEncoder) {
+        let attributePosition = descriptor.attributes[0] as! MDLVertexAttribute
+        attributePosition.name = MDLVertexAttributePosition
+        descriptor.attributes[0] = attributePosition
         
-        super.render(commandEncoder: commandEncoder)
-        guard let indexBuffer = indexBuffer else { return }
+        let attributeColor = descriptor.attributes[1] as! MDLVertexAttribute
+        attributeColor.name = MDLVertexAttributeColor
+        descriptor.attributes[1] = attributeColor
+        
+        let attributeTexture = descriptor.attributes[2] as! MDLVertexAttribute
+        attributeTexture.name = MDLVertexAttributeTextureCoordinate
+        descriptor.attributes[2] = attributeTexture
+        
+        let attributeNormal = descriptor.attributes[3] as! MDLVertexAttribute
+        attributeNormal.name = MDLVertexAttributeNormal
+        descriptor.attributes[3] = attributeNormal
+        
+        let bufferAllocator = MTKMeshBufferAllocator(device: device)
+        let asset = MDLAsset(url: assetURL,
+                             vertexDescriptor: descriptor,
+                             bufferAllocator: bufferAllocator)
+        
+        do {
+            meshes = try MTKMesh.newMeshes(asset: asset, device: device).metalKitMeshes
+        } catch let error as NSError {
+            fatalError("error: \(error.localizedDescription)")
+        }
+    }
+}
 
+extension Model: Renderable {
+      
+    func doRender(commandEncoder: MTLRenderCommandEncoder, modelViewMatrix: matrix_float4x4) {
+        
+        modelConstants.modelViewMatrix = modelViewMatrix
+        commandEncoder.setVertexBytes(&modelConstants,
+                                      length: MemoryLayout<ModelConstants>.stride,
+                                      index: 1)
+        
         commandEncoder.setRenderPipelineState(pipelineState)
-        commandEncoder.setVertexBuffer(vertexBuffer, offset: 0, index: 0)
-        commandEncoder.setFragmentTexture(texture, index: 0)
-        commandEncoder.drawIndexedPrimitives(type: .triangle,
-                                             indexCount: indices.count,
-                                             indexType: .uint16, indexBuffer: indexBuffer,
-                                             indexBufferOffset: 0)
+        
+        guard let meshes = meshes as? [MTKMesh], meshes.count > 0 else { return }
+        for mesh in meshes {
+            let vertexBuffer = mesh.vertexBuffers[0]
+            commandEncoder.setVertexBuffer(vertexBuffer.buffer,
+                                           offset: vertexBuffer.offset,
+                                           index: 0)
+            for submesh in mesh.submeshes {
+                commandEncoder.drawIndexedPrimitives(type: submesh.primitiveType,
+                                                     indexCount: submesh.indexCount,
+                                                     indexType: submesh.indexType,
+                                                     indexBuffer: submesh.indexBuffer.buffer,
+                                                     indexBufferOffset: submesh.indexBuffer.offset)
+            }
+        }
     }
 }
