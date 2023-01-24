@@ -13,14 +13,15 @@ enum Colors {
 }
 
 class ViewController: UIViewController {
-    
+
     var metalView: MTKView {
         return view as! MTKView
     }
     
     var renderer: Renderer?
-
+    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         metalView.device = MTLCreateSystemDefaultDevice()
@@ -32,7 +33,8 @@ class ViewController: UIViewController {
         renderer = Renderer(device: device)
         renderer?.scene = MainScene(device: device, size: view.bounds.size)
         
-        metalView.clearColor = Colors.black
+        metalView.clearColor = Colors.beige
+        metalView.depthStencilPixelFormat = .depth32Float
         metalView.delegate = renderer
     }
 }
