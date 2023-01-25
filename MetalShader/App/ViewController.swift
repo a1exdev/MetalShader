@@ -23,19 +23,22 @@ class ViewController: UIViewController {
         return device!
     }
     
-    var renderer: Renderer?
+    lazy var renderer = Renderer(device: device)
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
+        configureRenderer()
+        configureView()
+    }
+    
+    private func configureRenderer() {
+        renderer.scene = MainScene(device: device, size: view.bounds.size)
+    }
+    
+    private func configureView() {
         metalView.device = device
-        
-        renderer = Renderer(device: device)
-        renderer?.scene = MainScene(device: device, size: view.bounds.size)
-        
-        metalView.clearColor = Colors.beige
-        metalView.depthStencilPixelFormat = .depth32Float
         metalView.delegate = renderer
+        metalView.depthStencilPixelFormat = .depth32Float
+        metalView.clearColor = Colors.beige
     }
 }
