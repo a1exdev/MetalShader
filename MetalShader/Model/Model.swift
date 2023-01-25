@@ -51,6 +51,12 @@ class Model: Node, Texturable {
         name = modelName
         loadModel(device: device, modelName: modelName)
         
+        let imageName = modelName + ".jpg"
+        if let texture = setTexture(device: device, imageName: imageName) {
+            self.texture = texture
+            fragmentFunctionName = FunctionNames.texturedFragment.rawValue
+        }
+        
         pipelineState = buildPipelineState(device: device)
     }
     
@@ -99,6 +105,9 @@ extension Model: Renderable {
                                       length: MemoryLayout<ModelConstants>.stride,
                                       index: 1)
         
+        if texture != nil {
+            commandEncoder.setFragmentTexture(texture, index: 0)
+        }
         commandEncoder.setRenderPipelineState(pipelineState)
         
         guard let meshes = meshes as? [MTKMesh], meshes.count > 0 else { return }

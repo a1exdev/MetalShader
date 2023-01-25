@@ -26,6 +26,7 @@
 		87256AD1298004410093732B /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AD0298004410093732B /* Matrix.swift */; };
 		87256AD3298005410093732B /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87256AD2298005410093732B /* Camera.swift */; };
 		87256AD5298008970093732B /* model.obj in Resources */ = {isa = PBXBuildFile; fileRef = 87256AD4298008970093732B /* model.obj */; };
+		87E63AB72981162C00D046BF /* model.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 87E63AB62981162C00D046BF /* model.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		87256AD0298004410093732B /* Matrix.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		87256AD2298005410093732B /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		87256AD4298008970093732B /* model.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = model.obj; sourceTree = "<group>"; };
+		87E63AB62981162C00D046BF /* model.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = model.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		87256AB6297EA1570093732B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				87E63AB62981162C00D046BF /* model.jpg */,
 				87256AD4298008970093732B /* model.obj */,
 				87256AC3297EA40F0093732B /* Model.swift */,
 				87256AB7297EA1650093732B /* Node.swift */,
@@ -230,6 +233,7 @@
 			files = (
 				87256AA6297E90C90093732B /* LaunchScreen.storyboard in Resources */,
 				87256AA3297E90C90093732B /* Assets.xcassets in Resources */,
+				87E63AB72981162C00D046BF /* model.jpg in Resources */,
 				87256AA1297E90C90093732B /* Main.storyboard in Resources */,
 				87256AD5298008970093732B /* model.obj in Resources */,
 			);
