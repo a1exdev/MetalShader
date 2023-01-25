@@ -44,7 +44,7 @@ class Model: Node, Texturable {
         return vertexDescriptor
     }
   
-    init(device:MTLDevice, modelName: String) {
+    init(device: MTLDevice, modelName: String) {
         
         super.init()
         
@@ -54,16 +54,18 @@ class Model: Node, Texturable {
         let imageName = modelName + ".jpg"
         if let texture = setTexture(device: device, imageName: imageName) {
             self.texture = texture
-            fragmentFunctionName = FunctionNames.texturedFragment.rawValue
+        } else {
+            print("Texture named \(modelName).jpg doesn't exist.")
         }
         
+        fragmentFunctionName = FunctionNames.texturedFragment.rawValue
         pipelineState = buildPipelineState(device: device)
     }
     
     func loadModel(device: MTLDevice, modelName: String) {
         
         guard let assetURL = Bundle.main.url(forResource: modelName, withExtension: "obj") else {
-            fatalError("Asset \(modelName) does not exist.")
+            fatalError("Asset \(modelName) doesn't exist.")
         }
         let descriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
         
