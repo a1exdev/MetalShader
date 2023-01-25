@@ -17,15 +17,11 @@ extension Texturable {
         
         let textureLoader = MTKTextureLoader(device: device)
         var texture: MTLTexture? = nil
-        let textureLoaderOptions: [MTKTextureLoader.Option : Any]
         
-        if #available(iOS 10.0, *) {
-            let origin = NSString(string: MTKTextureLoader.Origin.bottomLeft.rawValue)
-            textureLoaderOptions = [MTKTextureLoader.Option.origin : origin]
-        } else {
-            textureLoaderOptions = [:]
-        }
-    
+        let textureLoaderOptions: [MTKTextureLoader.Option : Any]
+        let origin = NSString(string: MTKTextureLoader.Origin.bottomLeft.rawValue)
+        textureLoaderOptions = [MTKTextureLoader.Option.origin : origin]
+        
         if let textureURL = Bundle.main.url(forResource: imageName, withExtension: nil) {
             do {
                 texture = try textureLoader.newTexture(URL: textureURL, options: textureLoaderOptions)
@@ -36,4 +32,3 @@ extension Texturable {
         return texture
     }
 }
-
