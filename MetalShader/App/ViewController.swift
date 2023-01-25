@@ -18,17 +18,18 @@ class ViewController: UIViewController {
         return view as! MTKView
     }
     
+    var device: MTLDevice {
+        let device = MTLCreateSystemDefaultDevice()
+        return device!
+    }
+    
     var renderer: Renderer?
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        metalView.device = MTLCreateSystemDefaultDevice()
-        
-        guard let device = metalView.device else {
-            fatalError("Device not created. Run on a physical device")
-        }
+        metalView.device = device
         
         renderer = Renderer(device: device)
         renderer?.scene = MainScene(device: device, size: view.bounds.size)
