@@ -65,7 +65,7 @@ class Model: Node, Texturable {
     func loadModel(device: MTLDevice, modelName: String) {
         
         guard let assetURL = Bundle.main.url(forResource: modelName, withExtension: "obj") else {
-            fatalError("Asset \(modelName) doesn't exist.")
+            fatalError("Model named \(modelName) doesn't exist.")
         }
         let descriptor = MTKModelIOVertexDescriptorFromMetal(vertexDescriptor)
         
@@ -93,7 +93,7 @@ class Model: Node, Texturable {
         do {
             meshes = try MTKMesh.newMeshes(asset: asset, device: device).metalKitMeshes
         } catch let error as NSError {
-            fatalError("error: \(error.localizedDescription)")
+            fatalError("Model meshes error: \(error.localizedDescription)")
         }
     }
 }
@@ -107,7 +107,7 @@ extension Model: Renderable {
                                       length: MemoryLayout<ModelConstants>.stride,
                                       index: 1)
         
-        if texture != nil {
+        if let texture {
             commandEncoder.setFragmentTexture(texture, index: 0)
         }
         commandEncoder.setRenderPipelineState(pipelineState)

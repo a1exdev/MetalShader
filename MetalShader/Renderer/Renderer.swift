@@ -50,18 +50,22 @@ extension Renderer: MTKViewDelegate {
     func draw(in view: MTKView) {
         
         guard let drawable = view.currentDrawable,
-              let descriptor = view.currentRenderPassDescriptor else { return }
+              let descriptor = view.currentRenderPassDescriptor,
+              let commandBuffer = commandQueue.makeCommandBuffer(),
+              let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor)
+        else { return }
+
+        commandEncoder.setFragmentSamplerState(samplerState, index: 0)
+        commandEncoder.setDepthStencilState(depthStencilState)
         
-        let commandBuffer = commandQueue.makeCommandBuffer()
-        let commandEncoder = commandBuffer?.makeRenderCommandEncoder(descriptor: descriptor)
+        if let scene {
+            scene.render(commandEncoder: commandEncoder)
+        } else {
+            print("Renderer has no scene.")
+        }
         
-        commandEncoder?.setFragmentSamplerState(samplerState, index: 0)
-        commandEncoder?.setDepthStencilState(depthStencilState)
-        
-        scene?.render(commandEncoder: commandEncoder!)
-        
-        commandEncoder?.endEncoding()
-        commandBuffer?.present(drawable)
-        commandBuffer?.commit()
+        commandEncoder.endEncoding()
+        commandBuffer.present(drawable)
+        commandBuffer.commit()
     }
 }
