@@ -2,7 +2,7 @@
 >Practicing with MetalKit
 # **Table of contents**
 
-1. [Application Functionality](#applicationFeatures)
+1. [Application Features](#applicationFeatures)
 2. [Developers](#developers)
 
 <a name="applicationFeatures"></a>
